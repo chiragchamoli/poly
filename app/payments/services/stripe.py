@@ -26,7 +26,7 @@ class StripeHelper:
             success_url='https://example.com/success',
             cancel_url='https://example.com/cancel',
         )
-        return session.id
+        return session
 
     def create_customer_portal(self, customer_id):
         portal = stripe.billing_portal.Session.create(customer=customer_id)
