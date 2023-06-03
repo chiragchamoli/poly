@@ -79,15 +79,8 @@ def base_url():
     }
 
 
-@app.websocket("/ws")
-async def websocket_endpoint(websocket: WebSocket):
-    await websocket.accept()
-    while True:
-        data = await websocket.receive_text()
-        await websocket.send_text(f"Message text was: {data}")
 
-
-@app.get("/health-check")
+@app.get("/health")
 async def health_check():
     try:
         value = await RedisCache.core().set('health-check', 'Redis-server:Up')
