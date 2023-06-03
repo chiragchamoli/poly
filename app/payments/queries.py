@@ -21,3 +21,7 @@ def get_payment_instance(user_id):
     return db.execute(query).first()
 
 
+def create_payment_instance_query(payment: Payment):
+    db = next(get_db())
+    db.add(payment)
+    db.commit()

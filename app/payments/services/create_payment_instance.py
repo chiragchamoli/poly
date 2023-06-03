@@ -1,4 +1,5 @@
 from app.models.payment import Payment
+from app.payments.queries import create_payment_instance_query
 from app.payments.services.stripe import StripeHelper
 
 
@@ -13,4 +14,5 @@ def create_payment(user_id, user_email, provider, plan_id, plan_units):
                       provider_plan_units=plan_units)
 
 
-
+    create_payment_instance_query(payment)
+    return True
