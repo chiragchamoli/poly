@@ -93,3 +93,4 @@ report_stage.csv
 /python_cli.sh
 report.csv
 closer.csv
+*.pyc
